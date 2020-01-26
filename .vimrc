@@ -4,9 +4,12 @@ augroup MyAutoCmd
 augroup END
 
 """ 表示関係
+"ウインドウサイズの指定
+set columns=120
+set lines=40
 set t_Co=256
 set background=dark
-colorscheme koehler
+colorscheme molokai
 syntax on
 set list                " 不可視文字の可視化
 set number              " 行番号の表示
@@ -104,7 +107,7 @@ nnoremap <C-n> gt
 nnoremap <C-p> gT
 " Ctrl + n でNerdTree起動
 ""map <C-n> :NERDTreeToggle<CR>
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " :e などでファイルを開く際にフォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
   if !isdirectory(a:dir) && (a:force ||
