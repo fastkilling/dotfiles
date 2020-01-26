@@ -1,0 +1,18 @@
+ [[plugins]]
+repo = 'Shougo/unite.vim'
+ [[plugins]]
+repo = 'Shougo/neocomplete.vim'
+ [[plugins]]
+repo = 'Shougo/neosnippet.vim'
+ [[plugins]]
+repo = 'vim-syntastic/syntastic'
+ [[plugins]]
+repo = 'tpope/vim-fugitive.git'
+ [[plugins]]
+repo = 'tpope/vim-surround'
+ [[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+ [[plugins]]
+repo = 'davidhalter/jedi-vim'
+ [[plugins]]
+repo = 'scrooloose/nerdtree'
