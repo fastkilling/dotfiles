@@ -9,7 +9,6 @@ set columns=120
 set lines=40
 set t_Co=256
 set background=dark
-colorscheme molokai
 syntax on
 set list                " 不可視文字の可視化
 set number              " 行番号の表示
@@ -31,6 +30,13 @@ set foldlevel=100    " ファイルを開くときに折り畳みをしない
 set infercase           " 補完時に大文字小文字を区別しない
 set virtualedit=all     " カーソルを文字が存在しない部分でも動けるようにする
 set hidden              " バッファを閉じる代わりに隠す（Undo履歴を残すため）
+if has('persistent_undo')
+    if !isdirectory('~/.vim/undo')
+        call system('mkdir ~/.vim/undo')
+        set undodir=~/.vim/undo
+        set undofile
+    endif
+endif
 set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
 set showmatch           " 対応する括弧などをハイライト表示する
 set matchtime=3         " 対応括弧のハイライト表示を3秒にする
@@ -91,6 +97,7 @@ inoremap [ []<left>
 inoremap ( ()<left>
 inoremap { {}<left>
 inoremap " ""<left>
+au BufNewFile,BufRead *.vimrc inoremap " "
 inoremap ' ''<left>
 " Ctrl + hjkl でウィンドウ間を移動
 nnoremap <C-h> <C-w>h
@@ -105,8 +112,8 @@ nnoremap <S-Down>  <C-w>+<CR>
 " タブ間の移動
 nnoremap <C-n> gt
 nnoremap <C-p> gT
-" Ctrl + n でNerdTree起動
-""map <C-n> :NERDTreeToggle<CR>
+" Ctrl + e でNerdTree起動
+map <C-e> :NERDTreeToggle<CR>
 "nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " :e などでファイルを開く際にフォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
@@ -128,6 +135,7 @@ function! s:ChangeCurrentDir(directory, bang)
     endif
 endfunction
 autocmd MyAutoCmd VimEnter * call s:ChangeCurrentDir('', '')
+
 " *******************************************************
 " dein Scripts
 " *******************************************************
@@ -135,17 +143,14 @@ if &compatible
   set nocompatible
 endif
  " dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
+let s:cache_home = expand('~/.vim')
+"let s:dein_dir = s:cache_home . '/dein'
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
-
-
-
-
 "if dein#load_state(s:dein_cache_repo_dir)
 if dein#load_state(s:dein_dir)
     "required
@@ -178,3 +183,4 @@ endif
 " *******************************************************
 " End dein Scripts
 " *******************************************************
+"colorscheme molokai

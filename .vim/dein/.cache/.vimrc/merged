@@ -1,3 +1,0 @@
-{'repo': v:val.repo, 'rev': get(v:val, 'rev', '')}
-0
-[{'rev': '', 'repo': 'Shougo/dein.vim'}, {'rev': '', 'repo': 'Shougo/neocomplete.vim'}, {'rev': '', 'repo': 'Shougo/neosnippet.vim'}, {'rev': '', 'repo': 'Shougo/unite.vim'}, {'rev': '', 'repo': 'davidhalter/jedi-vim'}, {'rev': '', 'repo': 'scrooloose/nerdtree'}, {'rev': '', 'repo': 'tpope/vim-fugitive.git'}, {'rev': '', 'repo': 'tpope/vim-surround'}, {'rev': '', 'repo': 'vim-scripts/YankRing.vim'}, {'rev': '', 'repo': 'vim-syntastic/syntastic'}]
